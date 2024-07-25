@@ -174,7 +174,7 @@ const IntroEditor = () => {
         className="flex flex-col w-full h-screen justify-center space-y-10"
         id="page_intro_editor"
       >
-        <div className="mx-auto w-1/2">
+        <div className="mx-auto lg:w-1/2 md:w-2/3 w-full px-5">
           <form onSubmit={handleSubmit(onSubmit)}>
             <div className="mb-6">
               <label

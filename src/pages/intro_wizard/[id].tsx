@@ -30,6 +30,7 @@ import {
   AUTO_SAVED_INTERVAL,
   AUTO_SAVED_NOTIFY_DURATION,
 } from "@/configs/config";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 type MessageInput = {
   answer?: string;
@@ -48,6 +49,7 @@ const IntroWizard = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
   const [title, setTitle] = useState("");
+  const [example, setExample] = useState("");
   const params = useParams<{ id: string }>();
   const router = useRouter();
   const scriptStore = useScriptStore();
@@ -104,6 +106,15 @@ const IntroWizard = () => {
     reset({ answer: scriptStore.getAnswer() });
   }, [scriptStore.currentIndex]);
 
+  const handleCopy = useCallback(() => {
+    toast.info("Example Copied.", {
+      position: "top-center",
+      theme: "dark",
+      pauseOnHover: false,
+      autoClose: AUTO_SAVED_NOTIFY_DURATION,
+    });
+  }, [scriptStore.currentIndex]);
+
   useEffect(() => {
     setFocus("answer");
     setIsEditing(getValues("answer") !== "");
@@ -133,6 +144,7 @@ const IntroWizard = () => {
     onChange: (e) => {
       if (e.value.opacity == 0) {
         setTitle(scriptStore.getQuestion().desc);
+        setExample(scriptStore.getQuestion().placeholder);
       }
     },
   });
@@ -168,6 +180,7 @@ const IntroWizard = () => {
 
     setValue("answer", scriptStore.getAnswer());
     setTitle(scriptStore.getQuestion().desc);
+    setExample(scriptStore.getQuestion().placeholder);
     setIsEditing(scriptStore.getAnswer().trim() !== "");
   }, [scriptStore.isLoadedFromCookie]);
 
@@ -179,18 +192,36 @@ const IntroWizard = () => {
   return (
     <>
       <div className="flex flex-col w-full h-screen justify-center space-y-5">
-        <div className="mx-auto w-1/2">
+        <div className="mx-auto lg:w-1/2 md:w-2/3 w-full px-5">
           {transitions((style, currentIndex) => (
             <animated.h2
               style={style}
-              className="text-3xl font-extrabold text-center"
+              className="text-2xl md:text-3xl font-extrabold text-center"
               key={currentIndex}
             >
               {title}
             </animated.h2>
           ))}
         </div>
-        <div className="mx-auto w-1/2">
+
+        <CopyToClipboard
+          text={scriptStore.getQuestion().placeholder}
+          onCopy={handleCopy}
+        >
+          <div className="mx-auto lg:w-1/2 md:w-2/3 w-full px-5 text-center">
+            {transitions((style, currentIndex) => (
+              <animated.span
+                style={style}
+                className="text-gray-400 text-sm"
+                key={currentIndex}
+              >
+                <span className="underline">Example</span>: {example}
+              </animated.span>
+            ))}
+          </div>
+        </CopyToClipboard>
+
+        <div className="mx-auto lg:w-1/2 md:w-2/3 w-full px-5">
           <div className="text-right mb-4">{`${
             scriptStore.currentIndex + 1
           } / ${scriptStore.script.length}`}</div>
@@ -198,10 +229,7 @@ const IntroWizard = () => {
             <textarea
               rows={4}
               className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 mb-4"
-              placeholder={
-                "Ex:" + scriptStore.getQuestion().placeholder ??
-                "Write your thoughts here..."
-              }
+              placeholder={"Write your thoughts here..."}
               defaultValue={scriptStore.getAnswer()}
               onKeyUp={handleChange}
               {...register("answer")}

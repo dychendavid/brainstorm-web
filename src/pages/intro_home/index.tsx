@@ -10,9 +10,9 @@ const IntroHome = () => {
 
   return (
     <div className="flex flex-col w-full h-screen justify-center space-y-10">
-      <div className="mx-auto w-1/2">
-        <h2 className="text-4xl font-extrabold text-center">
-          You havnt your great intro, lets start with wizard
+      <div className="mx-auto lg:w-1/2 md:w-2/3 w-full px-5">
+        <h2 className="text-2xl lg:md:text-4xl font-extrabold text-center">
+          You havn&apos;t your great intro, lets start with wizard
         </h2>
       </div>
       <div className="flex-row space-x-4 flex justify-center">
