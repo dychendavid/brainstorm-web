@@ -1,0 +1,52 @@
+[
+  {
+    "desc": "What is the name of your product?",
+    "placeholder": "The Minimalist Entrepreneur",
+    "key": "name"
+  },
+  {
+    "desc": "What is this product used for?",
+    "placeholder": "This eBook is used to guide aspiring entrepreneurs through the principles of minimalism in business.",
+    "key": "usage"
+  },
+  {
+    "desc": "Who is your target audience?",
+    "placeholder": "Aspiring entrepreneurs, small business owners, and startup founders.",
+    "key": "targetAudience"
+  },
+  {
+    "desc": "What unique features or advantages does this product have?",
+    "placeholder": "Provides practical, real-world advice on minimalistic business practices; written by an experienced entrepreneur.",
+    "key": "difference"
+  },
+  {
+    "desc": "What key points do you want to emphasize in the copy?",
+    "placeholder": "Emphasize the simplicity and effectiveness of minimalistic approaches; highlight success stories and actionable steps.",
+    "key": "highlight"
+  },
+  {
+    "desc": "Do you have any specific tone or style requirements?",
+    "placeholder": "Professional yet friendly tone.",
+    "key": "style"
+  },
+  {
+    "desc": "Are there any special usage instructions or guidance for this product?",
+    "placeholder": "Can be previewed on our website before purchase.",
+    "key": "guidance"
+  },
+  {
+    "desc": "Ｗhat are the strength and weakness of your competitors product?",
+    "placeholder": "Competitors include various business advice books; strengths are broad content, weaknesses are lack of focus on minimalism.",
+    "key": "competitor"
+  },
+  {
+    "desc": "What is the desired length of the copy?",
+    "placeholder": "Approximately 500 words.",
+    "key": "length"
+  },
+  {
+    "desc": "Are there any other details or messages you want to include?",
+    "placeholder": "Mention the author’s background and credentials.",
+    "key": "extra"
+  }
+]
