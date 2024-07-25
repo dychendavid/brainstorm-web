@@ -212,7 +212,7 @@ const IntroWizard = () => {
             {transitions((style, currentIndex) => (
               <animated.span
                 style={style}
-                className="text-gray-400 text-sm"
+                className="text-gray-400 text-sm cursor-pointer"
                 key={currentIndex}
               >
                 <span className="underline">Example</span>: {example}
