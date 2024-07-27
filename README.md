@@ -87,6 +87,9 @@ sequenceDiagram
 
     U->>F: User fine tune product name and intro
     F->>F: Draft auto saver
+    activate F
+    F->>F: Save draft in cookies
+    deactivate F
     U->>F: User click save
     activate F
     F->>B: PUT /api/v1/products/:id
