@@ -14,6 +14,10 @@ Current scenario is the tool will help artist to generate a better product intro
 
 ### Dev Environment Setup
 
+- Clone this repository
+  - `git clone https://github.com/dychendavid/brainstorm-web`
+- Go to the directory
+  - `cd brainstorm-web`
 - Install node modules
   - `npm install`
 - Create .env and setup API url, replace XXX depends on your environment
@@ -31,8 +35,7 @@ sequenceDiagram
     participant F as Frontend
     participant B as Backend
 
-    rect rgb(240, 240, 240)
-    Note right of U: Home Page
+    Note over U,B: Home Page
     U->>F: Start / Reload
     activate F
     F->>B: GET /api/v1/products/available
@@ -40,10 +43,8 @@ sequenceDiagram
     B-->>F: response
     deactivate F
     deactivate B
-    end
 
-    rect rgb(240, 240, 240)
-    Note right of U: Wizard Page
+    Note over U,B: Wizard Page
     U->>F: Start / Reload
     activate F
     F->>B: POST /api/v1/authorize
@@ -60,10 +61,8 @@ sequenceDiagram
     F->>B: POST /api/v1/products/intro_gpt/:id
     B-->>F: response
     deactivate F
-    end
 
-    rect rgb(240, 240, 240)
-    Note right of U: Editor Page
+    Note over U,B: Editor Page
     U->>F: Start / Reload
     activate F
     F->>B: POST /api/v1/authorize
@@ -77,5 +76,6 @@ sequenceDiagram
     F->>B: PUT /api/v1/products/:id
     B-->>F: response
     deactivate F
-    end
+
+
 ```
