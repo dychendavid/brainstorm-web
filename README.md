@@ -44,6 +44,17 @@ sequenceDiagram
     B-->>F: response
     deactivate F
     deactivate B
+
+    U->>F: User click Wizard button
+    activate F
+    F->>F: Link to Wizard Page
+    deactivate F
+
+    U->>F: User click Editor button
+    activate F
+    F->>F: Link to Editor Page
+    deactivate F
+
 ```
 
 #### Wizard Page
@@ -69,6 +80,7 @@ sequenceDiagram
     activate F
     F->>B: POST /api/v1/products/intro_gpt/:id
     B-->>F: response
+    F->>F: Link to Editor Page
     deactivate F
 ```
 
