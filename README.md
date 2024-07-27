@@ -27,7 +27,9 @@ Current scenario is the tool will help artist to generate a better product intro
 - Execute
   - `npm run dev`
 
-### UML
+### Sequence Diagram
+
+#### Home Page
 
 ```mermaid
 sequenceDiagram
@@ -35,7 +37,6 @@ sequenceDiagram
     participant F as Frontend
     participant B as Backend
 
-    Note over U,B: Home Page
     U->>F: Start / Reload
     activate F
     F->>B: GET /api/v1/products/available
@@ -43,8 +44,16 @@ sequenceDiagram
     B-->>F: response
     deactivate F
     deactivate B
+```
 
-    Note over U,B: Wizard Page
+#### Wizard Page
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant F as Frontend
+    participant B as Backend
+
     U->>F: Start / Reload
     activate F
     F->>B: POST /api/v1/authorize
@@ -61,8 +70,15 @@ sequenceDiagram
     F->>B: POST /api/v1/products/intro_gpt/:id
     B-->>F: response
     deactivate F
+```
 
-    Note over U,B: Editor Page
+#### Editor Page
+
+```mermaid
+sequenceDiagram
+    actor U as User
+    participant F as Frontend
+    participant B as Backend
     U->>F: Start / Reload
     activate F
     F->>B: POST /api/v1/authorize
@@ -76,6 +92,4 @@ sequenceDiagram
     F->>B: PUT /api/v1/products/:id
     B-->>F: response
     deactivate F
-
-
 ```
