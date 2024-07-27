@@ -94,7 +94,7 @@ const IntroEditor = () => {
   }, []);
 
   useEffect(() => {
-    if (auth) {
+    if (!authStore.token && auth) {
       authStore.setToken(auth.token);
     }
   }, [auth]);

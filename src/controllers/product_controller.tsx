@@ -16,6 +16,7 @@ const useProductController = (productId?: string) => {
       const client = applyCaseMiddleware(axios.create());
       return client.get(API.PRODUCT_AVAILABLE).then((res) => res.data);
     },
+    enabled: !productId,
   });
 
   const { data: product, refetch: refetchProduct } = useQuery<ProductProps>({

@@ -185,7 +185,7 @@ const IntroWizard = () => {
   }, [scriptStore.isLoadedFromCookie]);
 
   useEffect(() => {
-    if (auth) {
+    if (!authStore.token && auth) {
       authStore.setToken(auth.token);
     }
   }, [auth]);
