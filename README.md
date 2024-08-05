@@ -4,6 +4,8 @@ This is a small project for looking for the possibility to save artist time or i
 
 Current scenario is the tool will help artist to generate a better product intro.
 
+[Live Demo](https://brainstorm-web-5c2eadc88e21.herokuapp.com/)
+
 ### Technical Features
 
 - [NextJS](https://nextjs.org/)
